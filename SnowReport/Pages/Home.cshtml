@@ -1,0 +1,30 @@
+﻿@page
+@model SnowReport.Pages.HomeModel
+
+
+<h1>Snowfall Tracker</h1>
+
+@if (Model.SnowTotals != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mountain Name</th>
+                <th>New Snow (inches)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var snowTotal in Model.SnowTotals)
+            {
+                <tr>
+                    <td>@snowTotal.MountainName</td>
+                    <td>@snowTotal.NewSnow</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p> No Snowfall data available</p>
+}

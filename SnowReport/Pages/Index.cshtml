@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h1>Welcome to Snow Report!</h1>
+    <p>Check out the latest feedback from our users:</p>
+
+    <div class="feedback-list">
+        @if (ViewBag.LatestFeedbacks != null && ViewBag.LatestFeedbacks.Count > 0)
+        {
+            
+            <ul>
+                @foreach (var feedback in ViewBag.LatestFeedbacks)
+                {
+                    <li>
+                        <strong>@feedback.Name</strong> (@feedback.Rider) visited @feedback.MountainName on @feedback.VisitDate.ToShortDateString():
+                        <blockquote>@feedback.Feedback</blockquote>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+                <p>No feedback available at the moment.</p>
+        }
+    </div>
+</div>

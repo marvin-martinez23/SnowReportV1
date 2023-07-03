@@ -1,0 +1,50 @@
+﻿@page
+@model SnowReport.Pages.Addresses.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SnowTotals</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SnowTotals.ID" />
+            <div class="form-group">
+                <label asp-for="SnowTotals.MountainName" class="control-label"></label>
+                <input asp-for="SnowTotals.MountainName" class="form-control" />
+                <span asp-validation-for="SnowTotals.MountainName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SnowTotals.NewSnow" class="control-label"></label>
+                <input asp-for="SnowTotals.NewSnow" class="form-control" />
+                <span asp-validation-for="SnowTotals.NewSnow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SnowTotals.City" class="control-label"></label>
+                <input asp-for="SnowTotals.City" class="form-control" />
+                <span asp-validation-for="SnowTotals.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SnowTotals.State" class="control-label"></label>
+                <input asp-for="SnowTotals.State" class="form-control" />
+                <span asp-validation-for="SnowTotals.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
